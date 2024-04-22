@@ -1,8 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import VisitCard from '../views/visitCard/View.vue'
+import VisitCards from '../components/visitcards.vue';
+import addVisitCard from '../components/addVisitCard.vue';
 import Register from '../components/register.vue';
 import Login from '../components/login.vue';
+import UpdateVisitCard from '../components/UpdateVisitCard.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,10 +25,20 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/visitcard',
-      name: 'visitcard',
-      component: VisitCard
-    }
+      path: '/visitcards',
+      name: 'visitcards',
+      component: VisitCards
+    },
+    {
+      path: '/add-visitcard',
+      name: 'add-visitcard',
+      component: addVisitCard
+    },
+    {
+      path: '/update-visitcard/:id', 
+      name: 'update-visitcard',
+      component: UpdateVisitCard, 
+    },
   ]
 })
 

@@ -3,13 +3,47 @@ import TheWelcome from '../components/TheWelcome.vue'
 </script> -->
 
 <template>
-  <main>
-    <button @click="logOut">Logout</button>
-    <h1>home page Hello {{ user?.name }}</h1>
-    <!-- <TheWelcome /> -->
-  </main>
-</template>
+   <div class="home-container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">BizCard</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <router-link class="nav-link" to="/">Home</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/visitcards">My Visitcards</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/add-visitcard">Add Visitcard</router-link>
+        </li>
+         <li class="nav-item">
+          <p class="navbar-text">Hello, {{ user?.name }}</p>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-danger" @click="logOut">Logout</button>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+   <div class="content">
+      <h1>Welcome to BizCard!</h1>
+    </div>
+    </div>
+</template>
 
 <script>
 import axios from 'axios';
@@ -70,3 +104,28 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.home-container {
+  background-image: url('./src/assets/conscious-design-wu-kq8V7-XY-unsplash.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+
+  padding: 20px;
+  flex: 1; 
+  text-align: center; 
+  color: black; 
+}
+
+
+.navbar {
+  background: rgba(255, 255, 255, 0.85); 
+}
+</style>

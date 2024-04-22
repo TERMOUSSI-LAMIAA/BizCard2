@@ -1,9 +1,46 @@
 <template>
-  <form @submit.prevent="login"> 
-    <input v-model="formData.email" type="email" placeholder="Email" required>
-    <input v-model="formData.password" type="password" placeholder="Password" required>
-    <button type="submit">Register</button>
-  </form>
+  <div class="login-container">
+    <div class="row justify-content-center align-items-center vh-100">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title text-center">Login</h3>
+            <form @submit.prevent="login">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  v-model="formData.email"
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  v-model="formData.password"
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div class="text-center mt-3">
+              <p>
+                Not registered yet?
+                <router-link to="/register">Click here to register</router-link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -58,3 +95,18 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.login-container {
+  background-color: #f5f5f5; /* Light background color */
+  height: 100vh; /* Full viewport height */
+}
+
+.card {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for the card */
+}
+
+.card-title {
+  font-weight: bold; /* Make the title bold */
+}
+</style>
